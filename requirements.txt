@@ -1,0 +1,17 @@
+# Core
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+opencv-python>=4.9
+tqdm>=4.66
+jupyter>=1.0
+ipykernel>=6.29
+
+# Optional ML method: YOLO detection/tracking
+ultralytics>=8.3
+
+# Optional ML method: MediaPipe Object Detector
+mediapipe>=0.10.14
+
+# Useful for notebooks and analysis
+scikit-learn>=1.4

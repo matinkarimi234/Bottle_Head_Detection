@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Project data and generated outputs
+data/
+models/
+outputs/
+runs/
+wandb/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.pt
+*.onnx
+*.tflite
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
