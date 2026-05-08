@@ -141,6 +141,12 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     display = SETTINGS.app.display and not args.no_display
+    WINDOW_NAME = "Bottle Detection"
+
+    if display:
+        cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+        cv2.setWindowProperty(WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
     write_video = SETTINGS.app.write_overlay_video or args.write_video
 
     # Optional runtime model path override.
@@ -359,7 +365,7 @@ def main():
                 video_writer.write(overlay_frame)
 
             if display:
-                cv2.imshow("Bottle State Machine", overlay_frame)
+                cv2.imshow(WINDOW_NAME, overlay_frame)
                 key = cv2.waitKey(1) & 0xFF
 
                 if key == ord("q"):

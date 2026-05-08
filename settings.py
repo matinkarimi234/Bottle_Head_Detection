@@ -20,7 +20,7 @@ class CameraConfig:
     width: int = 320
     height: int = 240
     fps: int = 15
-    fourcc: str = "MJPG"
+    fourcc: str = "YUYV"
 
     # Keep these disabled for stable CV thresholds.
     disable_auto_exposure: bool = True
