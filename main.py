@@ -238,7 +238,7 @@ def main():
                     left_passed_latched = False
                     no_detection_count = 0
 
-                    
+                    gpio.set_reduce_speed_output(True)
 
                     if SETTINGS.app.load_model_on_demand:
                         detector.load()

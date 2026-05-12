@@ -72,6 +72,12 @@ class GpioBackend:
             initial_value=False,
         )
 
+        self._reduce_speed_output = DigitalOutputDevice(
+            self.settings.reduce_speed_output_pin,
+            active_high=True,
+            initial_value=False,
+        )
+
         self._input.when_activated = self._on_run_enable_activated
         self._input.when_deactivated = self._on_run_enable_deactivated
 
@@ -115,9 +121,18 @@ class GpioBackend:
         if self._second_output is not None:
             self._second_output.value = bool(value)
 
+    def set_reduce_speed_output(self, value: bool) -> None:
+        if not self.settings.enabled or self.settings.dummy_mode:
+            print(f"[GPIO dummy] reduce speed output = {value}")
+            return
+        
+        if self._reduce_speed_output is not None:
+            self._reduce_speed_output.value = bool(value)
+
     def all_outputs_low(self) -> None:
         self.set_first_output(False)
         self.set_second_output(False)
+        self.set_reduce_speed_output(False)
 
     def close(self) -> None:
         self.all_outputs_low()

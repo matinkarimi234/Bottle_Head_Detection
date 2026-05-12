@@ -131,6 +131,8 @@ class GpioConfig:
     # the state moves toward the second/left bottle line check.
     second_bottle_output_pin: int = 22
 
+    reduce_speed_output_pin: int = 23
+
     input_pull_up: bool = False
     bounce_time_s: float = 0.05
 
