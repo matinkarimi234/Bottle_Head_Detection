@@ -17,10 +17,10 @@ class CameraConfig:
     device_path: str = "/dev/video0"
 
     # Your stable Pi settings.
-    width: int = 320
-    height: int = 240
-    fps: int = 15
-    fourcc: str = "YUYV"
+    width: int = 1280
+    height: int = 720
+    fps: int = 30
+    fourcc: str = "MJPG"
 
     # Keep these disabled for stable CV thresholds.
     disable_auto_exposure: bool = True

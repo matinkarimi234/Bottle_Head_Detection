@@ -238,7 +238,7 @@ def main():
                     left_passed_latched = False
                     no_detection_count = 0
 
-                    gpio.set_first_output(True)
+                    
 
                     if SETTINGS.app.load_model_on_demand:
                         detector.load()
@@ -273,10 +273,8 @@ def main():
 
                 if line_status.right_passed_now and not right_passed_latched:
                     right_passed_latched = True
-
-                    # As requested: when first/right bottle intersects right line,
-                    # move to left-line state and set Pin2 HIGH.
-                    gpio.set_second_output(True)
+                    gpio.set_first_output(True)
+                    
 
                     state = AppState.INTERSECT_LEFT_LINE_WITH_SECOND_BOTTLE
                     event_text = "FIRST/RIGHT bottle passed RIGHT line | PIN2 HIGH"
@@ -295,6 +293,9 @@ def main():
 
                 if line_status.left_passed_now and not left_passed_latched:
                     left_passed_latched = True
+                    # move to left-line state and set Pin2 HIGH.
+                    gpio.set_second_output(True)
+
                     state = AppState.BOTTLES_EXIT
                     event_text = "SECOND/LEFT bottle passed LEFT line"
                     log_event(output_dir, cycle_id, state, "second_left_bottle_passed_left_line", frame_index)
